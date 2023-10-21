@@ -42,9 +42,11 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        var yComp = Random.Range(0, coll.collider.attachedRigidbody.velocity.y);
+
         Vector2 vel;
         vel.x = ball.velocity.x;
-        vel.y = (ball.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
+        vel.y = (ball.velocity.y / 2) + (yComp / 3);
         ball.velocity = vel;
     }
 
